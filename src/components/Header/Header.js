@@ -19,8 +19,8 @@ const Header = () => {
                 <div className="md:flex md:justify-around">
                     <img src={logo} alt="" />
                     <div
-                        className={`md:flex md:items-center pl-5 md:pl-16 gap-5 font-semibold text-lg md:static absolute left-0 text-left duration-300 ease-in bg-fuchsia-800 md:bg-white w-full ${
-                            !open ? 'top-14' : 'top-[-120px]'
+                        className={`md:flex md:items-center pl-5 p-3 md:pl-16 md:p-0 gap-5 font-semibold text-lg md:static absolute text-left duration-200 ease-in bg-red-500 md:bg-white w-full ${
+                            !open ? 'left-0' : 'left-[-1200px]'
                         }`}
                     >
                         <CustomLink to="/">Home</CustomLink>
