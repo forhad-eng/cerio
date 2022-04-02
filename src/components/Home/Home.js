@@ -101,16 +101,16 @@ const Home = () => {
             <section className="mb-10">
                 <p className="text-3xl uppercase font-bold">best seller</p>
                 <hr className="border-red-500 w-14 mx-auto mt-3" />
-                <div className="md:w-1/2 mx-auto mt-7 grid gap-y-2 md:grid-cols-3">
+                <div className="md:w-1/2 mx-auto mt-7 grid gap-y-2 md:grid-cols-3 items-center">
                     <Link to="latest">
                         <button className="text-lg uppercase font-bold border-2 border-black p-2 outline-none">
                             latest products
                         </button>
                     </Link>
-                    <Link to="top">
+                    <Link to="top" className="hover:border-2 border-black p-2">
                         <button className="text-lg text-[#828282] uppercase font-bold outline-none">top rating</button>
                     </Link>
-                    <Link to="best">
+                    <Link to="best" className="hover:border-2 border-black p-2">
                         <button className="text-lg text-[#828282] uppercase font-bold outline-none">
                             best sellers
                         </button>

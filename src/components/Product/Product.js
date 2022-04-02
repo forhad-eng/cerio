@@ -11,7 +11,7 @@ const Product = ({ product }) => {
             <p className="font-semibold">{name}</p>
             <p className="text-red-600 font-bold">${price}</p>
             {open ? (
-                <div className="absolute bottom-24 left-1/2 transition-all">
+                <div className="absolute bottom-24 left-[220px] md:left-[130px] transition-all">
                     <button className="outline-none hover:text-red-600">
                         <FontAwesomeIcon icon={faShoppingCart} className="h-7 w-7" />
                     </button>
