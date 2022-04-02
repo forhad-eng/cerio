@@ -57,11 +57,11 @@ const Home = () => {
             </div>
 
             <div className="mb-10">
-                <div className="relative block md:inline-block md:w-[494px] h-[330px]">
-                    <img src="./images/banner1.jpg" className="hover:scale-95 hover:transition-all" alt="" />
+                <div className="relative block md:inline-block md:w-[494px]">
+                    <img src="./images/banner1.jpg" className="hover:scale-95 hover:transition-all h-[330px]" alt="" />
                     <div className="absolute top-1/3 left-[30px] text-left">
                         <p className="text-xl uppercase font-semibold ">
-                            <small>staff choice</small>
+                            <small className="text-[#828282]">staff choice</small>
                         </p>
                         <p className="text-4xl font-semibold ">New arrivals</p>
                         <Link to="/shop" className="font-semibold border-b-2 border-black">
@@ -71,11 +71,11 @@ const Home = () => {
                 </div>
                 <div className="relative block md:inline-block md:w-[360px]">
                     <img src="./images/banner2.jpg" className="hover:scale-95 hover:transition-all h-[330px]" alt="" />
-                    <div className="absolute top-1/3 left-[65px] text-center block md:inline-block">
+                    <div className="absolute top-1/3 left-[120px] md:left-[65px] text-center block md:inline-block">
                         <p className="text-xl uppercase font-semibold ">
-                            <small>up to 30% off</small>
+                            <small className="text-[#828282]">up to 30% off</small>
                         </p>
-                        <p className="text-4xl font-semibold ">Hot Collection</p>
+                        <p className="text-4xl font-semibold">Hot Collection</p>
                         <Link to="/shop" className="font-semibold border-b-2 border-black">
                             Shop Now
                         </Link>
@@ -85,7 +85,7 @@ const Home = () => {
                     <img src="./images/banner3.jpg" className="hover:scale-95 hover:transition-all" alt="" />
                     <div className="absolute top-1/3 right-[30px] text-right">
                         <p className="text-xl uppercase font-semibold">
-                            <small>Hand picked</small>
+                            <small className="text-[#828282]">Hand picked</small>
                         </p>
                         <p className="text-4xl font-semibold">Trending Now</p>
                         <Link to="/shop" className="font-semibold border-b-2 border-black">
@@ -94,6 +94,26 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <section className="mb-10">
+                <p className="text-3xl uppercase font-bold">best seller</p>
+                <hr className="border-red-500 w-14 mx-auto mt-3" />
+                <div className="md:w-1/2 mx-auto mt-7 flex justify-evenly items-center">
+                    <Link to="/">
+                        <button className="text-lg uppercase font-bold border-2 border-black p-2 outline-none">
+                            latest products
+                        </button>
+                    </Link>
+                    <Link to="/shop">
+                        <button className="text-lg text-[#828282] uppercase font-bold outline-none">top rating</button>
+                    </Link>
+                    <Link to="/review">
+                        <button className="text-lg text-[#828282] uppercase font-bold outline-none">
+                            best sellers
+                        </button>
+                    </Link>
+                </div>
+            </section>
         </div>
     )
 }
