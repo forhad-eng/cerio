@@ -16,7 +16,7 @@ const Shop = () => {
     let [loading, setLoading] = useState(true)
 
     return (
-        <div className="grid md:grid-cols-4 gap-8 mt-10">
+        <div className="grid md:grid-cols-4 gap-8 mt-28 md:mt-10">
             {products.length === 0 ? (
                 <BarLoader loading={loading} css={override} />
             ) : (

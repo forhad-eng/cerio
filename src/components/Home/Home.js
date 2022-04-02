@@ -84,8 +84,8 @@ const Home = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="relative block md:inline-block md:w-[494px] h-[330px]">
-                    <img src="./images/banner3.jpg" className="hover:scale-95 hover:transition-all" alt="" />
+                <div className="relative block md:inline-block md:w-[494px]">
+                    <img src="./images/banner3.jpg" className="hover:scale-95 hover:transition-all h-[330px]" alt="" />
                     <div className="absolute top-1/3 right-[30px] text-right">
                         <p className="text-xl uppercase font-semibold">
                             <small className="text-[#828282]">Hand picked</small>
@@ -99,9 +99,9 @@ const Home = () => {
             </div>
 
             <section className="mb-10">
-                <p className="text-3xl uppercase font-bold">best seller</p>
+                s<p className="text-3xl uppercase font-bold">best seller</p>
                 <hr className="border-red-500 w-14 mx-auto mt-3" />
-                <div className="md:w-1/2 mx-auto mt-7 flex justify-evenly items-center">
+                <div className="md:w-1/2 mx-auto mt-7 flex justify-around md:justify-evenly items-center">
                     <Link to="latest">
                         <button className="text-lg uppercase font-bold border-2 border-black p-2 outline-none">
                             latest products
