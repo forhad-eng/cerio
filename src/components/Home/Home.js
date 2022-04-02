@@ -17,7 +17,7 @@ const Home = () => {
     }
     return (
         <div className="w-4/5 h-[520px] mx-auto flex-column mt-10 mb-20 md:mt-0 md:mb-0 md:flex md:justify-around md:items-center">
-            <div className="text-left mb-10 md:mb-0">
+            <div className="text-left mb-6 md:mb-0">
                 <p className="text-xl uppercase font-semibold">Sale up to 30% off</p>
                 <p className="text-6xl font-semibold">
                     Spring <br />
