@@ -2,11 +2,16 @@ import { faCircleDot } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ArrowRightIcon } from '@heroicons/react/solid'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import CustomLink from '../CustomLink/CustomLink'
 
 const Home = () => {
     const [model, setModel] = useState('./model1.jpg')
+    const latestHandler = event => {
+        event.target.click()
+        console.log(event.target)
+    }
+
     const modelHandler = index => {
         if (index === 0) {
             setModel('./model1.jpg')
@@ -16,6 +21,7 @@ const Home = () => {
             setModel('./model3.jpg')
         }
     }
+
     return (
         <div>
             <div className="w-4/5 h-[520px] mx-auto flex-column mt-10 mb-20 md:mt-0 md:mb-0 md:flex md:justify-around md:items-center">
@@ -99,20 +105,21 @@ const Home = () => {
                 <p className="text-3xl uppercase font-bold">best seller</p>
                 <hr className="border-red-500 w-14 mx-auto mt-3" />
                 <div className="md:w-1/2 mx-auto mt-7 flex justify-evenly items-center">
-                    <Link to="/">
+                    <Link to="/latest">
                         <button className="text-lg uppercase font-bold border-2 border-black p-2 outline-none">
                             latest products
                         </button>
                     </Link>
-                    <Link to="/shop">
+                    <Link to="/top">
                         <button className="text-lg text-[#828282] uppercase font-bold outline-none">top rating</button>
                     </Link>
-                    <Link to="/review">
+                    <Link to="/best">
                         <button className="text-lg text-[#828282] uppercase font-bold outline-none">
                             best sellers
                         </button>
                     </Link>
                 </div>
+                <Outlet />
             </section>
         </div>
     )
