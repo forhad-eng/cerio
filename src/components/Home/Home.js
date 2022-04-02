@@ -99,9 +99,9 @@ const Home = () => {
             </div>
 
             <section className="mb-10">
-                s<p className="text-3xl uppercase font-bold">best seller</p>
+                <p className="text-3xl uppercase font-bold">best seller</p>
                 <hr className="border-red-500 w-14 mx-auto mt-3" />
-                <div className="md:w-1/2 mx-auto mt-7 flex justify-around md:justify-evenly items-center">
+                <div className="md:w-1/2 mx-auto mt-7 grid gap-y-2 md:grid-cols-3">
                     <Link to="latest">
                         <button className="text-lg uppercase font-bold border-2 border-black p-2 outline-none">
                             latest products
