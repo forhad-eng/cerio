@@ -11,7 +11,7 @@ const override = css`
     left: 50%;
 `
 
-const BestSellers = () => {
+const Shop = () => {
     const [products, setProducts] = useProducts()
     let [loading, setLoading] = useState(true)
 
@@ -20,10 +20,10 @@ const BestSellers = () => {
             {products.length === 0 ? (
                 <BarLoader loading={loading} css={override} />
             ) : (
-                products.slice(13, 22).map(product => <Product key={product.id} product={product} />)
+                products.map(product => <Product key={product.id} product={product} />)
             )}
         </div>
     )
 }
 
-export default BestSellers
+export default Shop

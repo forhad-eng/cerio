@@ -4,13 +4,10 @@ import { ArrowRightIcon } from '@heroicons/react/solid'
 import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import CustomLink from '../CustomLink/CustomLink'
+import OurServices from '../OurServices/OurServices'
 
 const Home = () => {
     const [model, setModel] = useState('./model1.jpg')
-    const latestHandler = event => {
-        event.target.click()
-        console.log(event.target)
-    }
 
     const modelHandler = index => {
         if (index === 0) {
@@ -105,15 +102,15 @@ const Home = () => {
                 <p className="text-3xl uppercase font-bold">best seller</p>
                 <hr className="border-red-500 w-14 mx-auto mt-3" />
                 <div className="md:w-1/2 mx-auto mt-7 flex justify-evenly items-center">
-                    <Link to="/latest">
+                    <Link to="latest">
                         <button className="text-lg uppercase font-bold border-2 border-black p-2 outline-none">
                             latest products
                         </button>
                     </Link>
-                    <Link to="/top">
+                    <Link to="top">
                         <button className="text-lg text-[#828282] uppercase font-bold outline-none">top rating</button>
                     </Link>
-                    <Link to="/best">
+                    <Link to="best">
                         <button className="text-lg text-[#828282] uppercase font-bold outline-none">
                             best sellers
                         </button>
@@ -121,6 +118,7 @@ const Home = () => {
                 </div>
                 <Outlet />
             </section>
+            <OurServices />
         </div>
     )
 }

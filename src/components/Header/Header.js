@@ -1,8 +1,15 @@
+import { css } from '@emotion/react'
 import { MenuIcon, SearchIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/solid'
 import React, { useState } from 'react'
 import CustomLink from '../CustomLink/CustomLink'
 import logo from '../images/logo.webp'
 import './Header.css'
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`
 
 const Header = () => {
     const [open, setOpen] = useState(true)
