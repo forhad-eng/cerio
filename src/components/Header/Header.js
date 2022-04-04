@@ -8,10 +8,10 @@ import './Header.css'
 
 const Header = () => {
     const [open, setOpen] = useState(true)
-    const [cart] = useContext(CartContext)
+    const [cart, setCart, wish] = useContext(CartContext)
 
-    const reducer = (pre, cur) => cur.quantity && pre + cur.quantity
-    const total = cart.reduce(reducer, 0)
+    const cartReducer = (pre, cur) => cur.quantity && pre + cur.quantity
+    const total = cart.reduce(cartReducer, 0)
 
     const handleIcon = () => {
         setOpen(!open)
@@ -43,7 +43,7 @@ const Header = () => {
                     <UserIcon className="h-6 w-6" />
                     <div class="cart-box">
                         <HeartIcon className="h-6 w-6" />
-                        <span class="cart-counter">{total}</span>
+                        <span class="cart-counter">{wish.length}</span>
                     </div>
                     <div class="cart-box">
                         <ShoppingCartIcon className="h-6 w-6" />

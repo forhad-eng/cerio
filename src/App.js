@@ -9,15 +9,17 @@ import Shop from './components/Shop/Shop'
 import TopSelling from './components/TopSelling/TopSelling'
 import useCart from './hooks/useCart'
 import useProducts from './hooks/useProducts'
+import useWishList from './hooks/useWishList'
 
 export const CartContext = createContext([])
 
 function App() {
     const [products, setProducts] = useProducts()
     const [cart, setCart] = useCart(products)
+    const [wish, setWish] = useWishList(products)
 
     return (
-        <CartContext.Provider value={[cart, setCart]}>
+        <CartContext.Provider value={[cart, setCart, wish, setWish]}>
             <div className="App">
                 <Header />
                 <Routes>

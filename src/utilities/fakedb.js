@@ -38,4 +38,27 @@ const clearCart = () => {
     localStorage.removeItem('cerio-cart')
 }
 
-export { addToDb, getCart, removeItem, clearCart }
+const addToWish = productID => {
+    let storedCart = []
+    const cart = localStorage.getItem('cerio-wishlist')
+    if (cart) {
+        storedCart = [...JSON.parse(cart)]
+        if (storedCart.indexOf(productID) === -1) {
+            storedCart.push(productID)
+        }
+    } else {
+        storedCart.push(productID)
+    }
+    localStorage.setItem('cerio-wishlist', JSON.stringify(storedCart))
+}
+
+const getWish = () => {
+    let storedCart = []
+    const cart = localStorage.getItem('cerio-wishlist')
+    if (cart) {
+        storedCart = [...JSON.parse(cart)]
+    }
+    return storedCart
+}
+
+export { addToDb, getCart, removeItem, clearCart, addToWish, getWish }
