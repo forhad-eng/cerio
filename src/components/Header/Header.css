@@ -1,4 +1,17 @@
-nav img {
-    width: 120px;
-    height: 32px;
+.cart-box {
+    position: relative;
+}
+
+.cart-counter {
+    padding: 0 5px;
+    height: 20px;
+    border-radius: 15px;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    transform: translate(0%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    background-color: gray;
+    color: white;
 }

@@ -1,20 +1,41 @@
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { CartContext } from '../../App'
+import { addToDb } from '../../utilities/fakedb'
 
 const Product = ({ product }) => {
     const { name, price, picture } = product
     const [open, setOpen] = useState(false)
+    const [cart, setCart] = useContext(CartContext)
+
+    const addToCartHandler = product => {
+        let newCart = []
+        let pd = cart.find(item => item.id === product.id)
+        if (pd) {
+            pd.quantity += 1
+            const rest = cart.filter(item => item.id !== pd.id)
+            newCart = [...rest, pd]
+        } else {
+            product.quantity = 1
+            const rest = cart.filter(item => item.id !== product.id)
+            newCart = [...rest, product]
+        }
+        setCart(newCart)
+        addToDb(product.id)
+    }
+
     return (
         <div onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)} className="relative">
             <img src={picture} alt="" />
             <p className="font-semibold">{name}</p>
             <p className="text-red-600 font-bold">${price}</p>
             {open ? (
-                <div className="absolute bottom-24 left-[220px] md:left-[130px] transition-all">
-                    <button className="outline-none hover:text-red-600">
+                <div className="absolute bottom-24 left-1/2 transition-all">
+                    <button onClick={() => addToCartHandler(product)} className="outline-none hover:text-red-600">
                         <FontAwesomeIcon icon={faShoppingCart} className="h-7 w-7" />
                     </button>
+
                     <button className="outline-none hover:text-red-600">
                         <FontAwesomeIcon icon={faHeart} className="h-7 w-7 ml-2" />
                     </button>
