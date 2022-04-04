@@ -1,4 +1,4 @@
-import { MenuIcon, SearchIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/solid'
+import { HeartIcon, MenuIcon, SearchIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/solid'
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../App'
@@ -42,7 +42,11 @@ const Header = () => {
                     <SearchIcon className="h-6 w-6" />
                     <UserIcon className="h-6 w-6" />
                     <div class="cart-box">
-                        <ShoppingCartIcon className="h-6 w-6 badge" values={total} />
+                        <HeartIcon className="h-6 w-6" />
+                        <span class="cart-counter">{total}</span>
+                    </div>
+                    <div class="cart-box">
+                        <ShoppingCartIcon className="h-6 w-6" />
                         <span class="cart-counter">{total}</span>
                     </div>
                 </div>
