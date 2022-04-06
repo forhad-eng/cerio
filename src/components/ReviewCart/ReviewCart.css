@@ -13,3 +13,17 @@
     height: 60px;
     border-radius: 50%;
 }
+
+@media only screen and (max-width: 480px) {
+    .review-cart {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        gap: 10px;
+        margin-top: 30px;
+    }
+
+    .review-card {
+        width: 300px;
+        height: 100px;
+    }
+}

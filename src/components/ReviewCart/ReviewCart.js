@@ -37,8 +37,12 @@ const Review = ({ product }) => {
                 <img src={picture} alt="" />
                 <div className="text-left ml-2">
                     <p>{name}</p>
-                    <p>Price: ${price}</p>
-                    <p>Quantity: {quantity}</p>
+                    <p>
+                        Price: <span className="text-orange-500">${price}</span>
+                    </p>
+                    <p>
+                        Quantity: <span className="text-orange-500">{quantity}</span>
+                    </p>
                 </div>
             </div>
             <button

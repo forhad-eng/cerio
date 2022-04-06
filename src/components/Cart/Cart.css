@@ -1,0 +1,6 @@
+.cart {
+    height: 350px;
+    position: sticky;
+    top: 20%;
+    border-radius: 8px 0 0 8px;
+}
