@@ -5,6 +5,7 @@ import BestSellers from './components/BestSellers/BestSellers'
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import Latest from './components/Latest/Latest'
+import ReviewCart from './components/ReviewCart/ReviewCart'
 import Shop from './components/Shop/Shop'
 import TopSelling from './components/TopSelling/TopSelling'
 import useCart from './hooks/useCart'
@@ -14,7 +15,7 @@ import useWishList from './hooks/useWishList'
 export const CartContext = createContext([])
 
 function App() {
-    const [products, setProducts] = useProducts()
+    const [products] = useProducts()
     const [cart, setCart] = useCart(products)
     const [wish, setWish] = useWishList(products)
 
@@ -29,6 +30,7 @@ function App() {
                         <Route path="best" element={<BestSellers />} />
                     </Route>
                     <Route path="/shop" element={<Shop />} />
+                    <Route path="/review" element={<ReviewCart />} />
                 </Routes>
             </div>
         </CartContext.Provider>

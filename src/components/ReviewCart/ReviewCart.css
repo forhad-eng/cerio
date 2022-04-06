@@ -1,0 +1,15 @@
+.review-cart {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 20px;
+}
+
+.review-card {
+    width: 500px;
+    height: 100px;
+}
+.review-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}

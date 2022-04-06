@@ -8,7 +8,7 @@ import './Header.css'
 
 const Header = () => {
     const [open, setOpen] = useState(true)
-    const [cart, setCart, wish] = useContext(CartContext)
+    const [cart, , wish] = useContext(CartContext)
 
     const cartReducer = (pre, cur) => cur.quantity && pre + cur.quantity
     const total = cart.reduce(cartReducer, 0)
@@ -41,14 +41,18 @@ const Header = () => {
                 <div className="flex gap-5 relative">
                     <SearchIcon className="h-6 w-6" />
                     <UserIcon className="h-6 w-6" />
-                    <div class="cart-box">
-                        <HeartIcon className="h-6 w-6" />
-                        <span class="cart-counter">{wish.length}</span>
-                    </div>
-                    <div class="cart-box">
-                        <ShoppingCartIcon className="h-6 w-6" />
-                        <span class="cart-counter">{total}</span>
-                    </div>
+                    <Link to="/">
+                        <div class="cart-box">
+                            <HeartIcon className="h-6 w-6" />
+                            <span class="cart-counter">{wish.length}</span>
+                        </div>
+                    </Link>
+                    <Link to="/review">
+                        <div class="cart-box">
+                            <ShoppingCartIcon className="h-6 w-6" />
+                            <span class="cart-counter">{total}</span>
+                        </div>
+                    </Link>
                 </div>
             </nav>
         </header>
