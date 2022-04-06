@@ -8,12 +8,12 @@ const override = css`
     display: block;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 45%;
 `
 
 const Latest = () => {
-    const [products, setProducts] = useProducts()
-    let [loading, setLoading] = useState(true)
+    const [products] = useProducts()
+    let [loading] = useState(true)
 
     return (
         <div className="grid md:grid-cols-4 gap-8 mt-10">

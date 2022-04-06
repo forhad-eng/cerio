@@ -8,6 +8,7 @@ import Latest from './components/Latest/Latest'
 import ReviewCart from './components/ReviewCart/ReviewCart'
 import Shop from './components/Shop/Shop'
 import TopSelling from './components/TopSelling/TopSelling'
+import WishList from './components/WishList/WishList'
 import useCart from './hooks/useCart'
 import useProducts from './hooks/useProducts'
 import useWishList from './hooks/useWishList'
@@ -31,6 +32,7 @@ function App() {
                     </Route>
                     <Route path="/shop" element={<Shop />} />
                     <Route path="/review" element={<ReviewCart />} />
+                    <Route path="/wishlist" element={<WishList />} />
                 </Routes>
             </div>
         </CartContext.Provider>

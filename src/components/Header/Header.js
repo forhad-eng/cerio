@@ -41,7 +41,7 @@ const Header = () => {
                 <div className="flex gap-5 relative">
                     <SearchIcon className="h-6 w-6" />
                     <UserIcon className="h-6 w-6" />
-                    <Link to="/">
+                    <Link to="/wishlist">
                         <div class="cart-box">
                             <HeartIcon className="h-6 w-6" />
                             <span class="cart-counter">{wish.length}</span>
