@@ -26,6 +26,7 @@ function App() {
                 <Header />
                 <Routes>
                     <Route path="/" element={<Home />}>
+                        <Route index element={<Latest />} />
                         <Route path="latest" element={<Latest />} />
                         <Route path="top" element={<TopSelling />} />
                         <Route path="best" element={<BestSellers />} />
