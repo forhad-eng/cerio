@@ -1,7 +1,9 @@
 import { HeartIcon, MenuIcon, SearchIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/solid'
 import React, { useContext, useState } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../App'
+import auth from '../../firebase.init'
 import CustomLink from '../CustomLink/CustomLink'
 import logo from '../images/logo.webp'
 import './Header.css'
@@ -9,6 +11,7 @@ import './Header.css'
 const Header = () => {
     const [open, setOpen] = useState(true)
     const [cart, , wish] = useContext(CartContext)
+    const [user] = useAuthState(auth)
 
     const cartReducer = (pre, cur) => cur.quantity && pre + cur.quantity
     const total = cart.reduce(cartReducer, 0)
@@ -40,7 +43,6 @@ const Header = () => {
                 </div>
                 <div className="flex gap-5 relative">
                     <SearchIcon className="h-6 w-6" />
-                    <UserIcon className="h-6 w-6" />
                     <Link to="/wishlist">
                         <div class="cart-box">
                             <HeartIcon className="h-6 w-6" />
@@ -53,6 +55,15 @@ const Header = () => {
                             <span class="cart-counter">{total}</span>
                         </div>
                     </Link>
+                    {user ? (
+                        <Link to="/user">
+                            <UserIcon className="h-6 w-6" />
+                        </Link>
+                    ) : (
+                        <Link to="/login">
+                            <UserIcon className="h-6 w-6" />
+                        </Link>
+                    )}
                 </div>
             </nav>
         </header>

@@ -5,9 +5,12 @@ import BestSellers from './components/BestSellers/BestSellers'
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import Latest from './components/Latest/Latest'
+import Login from './components/Login/Login'
 import ReviewCart from './components/ReviewCart/ReviewCart'
 import Shop from './components/Shop/Shop'
+import SignUp from './components/SignUp/SignUp'
 import TopSelling from './components/TopSelling/TopSelling'
+import UserProfile from './components/UserProfile/UserProfile'
 import WishList from './components/WishList/WishList'
 import useCart from './hooks/useCart'
 import useProducts from './hooks/useProducts'
@@ -34,6 +37,9 @@ function App() {
                     <Route path="/shop" element={<Shop />} />
                     <Route path="/review" element={<ReviewCart />} />
                     <Route path="/wishlist" element={<WishList />} />
+                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/user" element={<UserProfile />} />
                 </Routes>
             </div>
         </CartContext.Provider>
