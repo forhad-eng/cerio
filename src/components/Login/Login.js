@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
 
 const Login = () => {
@@ -9,9 +9,12 @@ const Login = () => {
     const [err, setErr] = useState('')
     const [signInWithEmailAndPassword, user, , error] = useSignInWithEmailAndPassword(auth)
     const navigate = useNavigate()
+    const location = useLocation()
 
-    if(user){
-        navigate('/user')
+    const from = location.state?.from?.pathname || '/'
+
+    if (user) {
+        navigate(from, { replace: true })
     }
 
     const LogInHandler = e => {
@@ -54,13 +57,13 @@ const Login = () => {
                         <hr className="mt-6 border-b-1 border-gray-300" />
                     </div>
                     <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                        <div className="text-blueGray-400 text-center mb-3 font-bold">
+                        <div className="uppercase tracking-wide text-gray-700 text-center mb-3 font-bold">
                             <small>Or Login with credentials</small>
                         </div>
                         <form onSubmit={LogInHandler} className="text-left">
                             <div className="relative w-full mb-3">
                                 <label
-                                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                    className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                     htmlfor="grid-password"
                                 >
                                     Email
@@ -70,12 +73,13 @@ const Login = () => {
                                     type="email"
                                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                     placeholder="Email"
+                                    required
                                 />
                             </div>
 
                             <div className="relative w-full mb-3">
                                 <label
-                                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                    className="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                     htmlfor="grid-password"
                                 >
                                     Password
@@ -85,6 +89,7 @@ const Login = () => {
                                     type="password"
                                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                     placeholder="Password"
+                                    required
                                 />
                                 {error && <p>{error.message}</p>}
                             </div>

@@ -6,7 +6,9 @@ import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import Latest from './components/Latest/Latest'
 import Login from './components/Login/Login'
+import RequireAuth from './components/RequireAuth/RequireAuth'
 import ReviewCart from './components/ReviewCart/ReviewCart'
+import Shipping from './components/Shipping/Shipping'
 import Shop from './components/Shop/Shop'
 import SignUp from './components/SignUp/SignUp'
 import TopSelling from './components/TopSelling/TopSelling'
@@ -38,6 +40,14 @@ function App() {
                     <Route path="/review" element={<ReviewCart />} />
                     <Route path="/wishlist" element={<WishList />} />
                     <Route path="/signup" element={<SignUp />} />
+                    <Route
+                        path="/shipping"
+                        element={
+                            <RequireAuth>
+                                <Shipping />
+                            </RequireAuth>
+                        }
+                    />
                     <Route path="/login" element={<Login />} />
                     <Route path="/user" element={<UserProfile />} />
                 </Routes>

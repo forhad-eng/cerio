@@ -88,6 +88,7 @@ const SignUp = () => {
                                     type="text"
                                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                     placeholder="Name"
+                                    required
                                 />
                             </div>
 
@@ -103,6 +104,7 @@ const SignUp = () => {
                                     type="email"
                                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                     placeholder="Email"
+                                    required
                                 />
                             </div>
 
@@ -118,6 +120,7 @@ const SignUp = () => {
                                     type="password"
                                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                     placeholder="Password"
+                                    required
                                 />
                             </div>
 
@@ -133,6 +136,7 @@ const SignUp = () => {
                                     type="password"
                                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                     placeholder="Confirm Password"
+                                    required
                                 />
                                 {err && <p>{err}</p>}
                             </div>

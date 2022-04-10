@@ -23,9 +23,9 @@ const Cart = () => {
                 <p>Tax: ${(price * 0.15).toFixed(2)}</p>
                 <p>Grand Total: ${price + price * 0.15}</p>
             </div>
-            <Link to="/">
+            <Link to="/shipping">
                 <button className="w-44 h-12 mx-auto mt-5 rounded-md bg-red-500 text-white text-sm uppercase font-semibold flex items-center justify-center">
-                    Proceed Checkout <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
+                    Proceed Shipping <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
                 </button>
             </Link>
         </div>
