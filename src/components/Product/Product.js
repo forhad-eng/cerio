@@ -8,7 +8,6 @@ const Product = ({ product }) => {
     const { name, price, picture } = product
     const [open, setOpen] = useState(false)
     const [cart, setCart, wish, setWish] = useContext(CartContext)
-    console.log(wish)
 
     const addToCartHandler = product => {
         let newCart = []

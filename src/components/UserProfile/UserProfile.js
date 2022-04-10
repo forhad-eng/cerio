@@ -9,6 +9,8 @@ const UserProfile = () => {
     const [user] = useAuthState(auth)
     const navigate = useNavigate()
 
+    console.log(user)
+
     const signOutHandler = () => {
         signOut(auth)
         navigate('/login')

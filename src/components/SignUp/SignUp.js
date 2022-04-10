@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import {
-    useAuthState,
     useCreateUserWithEmailAndPassword,
     useSendEmailVerification,
     useUpdateProfile
 } from 'react-firebase-hooks/auth'
+import { useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
 
 const SignUp = () => {
@@ -16,8 +16,7 @@ const SignUp = () => {
     const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth)
     const [sendEmailVerification] = useSendEmailVerification(auth)
     const [updateProfile] = useUpdateProfile(auth)
-    const [user] = useAuthState(auth)
-    console.log(user)
+    const navigate = useNavigate()
 
     const singUpHandler = e => {
         e.preventDefault()
@@ -33,6 +32,7 @@ const SignUp = () => {
             updateProfile({
                 displayName: name
             })
+            navigate('/login')
             sendEmailVerification()
         })
     }

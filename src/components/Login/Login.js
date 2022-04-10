@@ -13,13 +13,15 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/'
 
-    if (user) {
+    if (user?.user?.emailVerified) {
         navigate(from, { replace: true })
     }
 
     const LogInHandler = e => {
         e.preventDefault()
-        signInWithEmailAndPassword(email, pass)
+        signInWithEmailAndPassword(email, pass).then(() => {
+            setErr('Please verify your email first')
+        })
     }
 
     return (
@@ -92,6 +94,7 @@ const Login = () => {
                                     required
                                 />
                                 {error && <p>{error.message}</p>}
+                                {err && <p>{err}</p>}
                             </div>
 
                             <div className="flex justify-between">

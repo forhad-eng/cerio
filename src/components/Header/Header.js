@@ -55,7 +55,7 @@ const Header = () => {
                             <span class="cart-counter">{total}</span>
                         </div>
                     </Link>
-                    {user ? (
+                    {user?.emailVerified ? (
                         <Link to="/user">
                             <UserIcon className="h-6 w-6" />
                         </Link>
