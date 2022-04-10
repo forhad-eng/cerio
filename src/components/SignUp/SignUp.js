@@ -4,7 +4,7 @@ import {
     useSendEmailVerification,
     useUpdateProfile
 } from 'react-firebase-hooks/auth'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
 
 const SignUp = () => {
@@ -145,9 +145,9 @@ const SignUp = () => {
                                 <label className="inline-flex items-center cursor-pointer">
                                     <span className="ml-2 text-sm font-semibold text-blueGray-600">
                                         Already have an account?
-                                        <a href="/user" className="text-pink-500 ml-1">
+                                        <Link href="/user" className="text-pink-500 ml-1">
                                             Login
-                                        </a>
+                                        </Link>
                                     </span>
                                 </label>
                             </div>
