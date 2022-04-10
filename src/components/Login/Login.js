@@ -101,7 +101,7 @@ const Login = () => {
                                 <label className="inline-flex items-center cursor-pointer">
                                     <span className="ml-2 text-sm font-semibold text-blueGray-600">
                                         New to CERIO?
-                                        <Link href="/signup" className="text-pink-500 ml-1">
+                                        <Link to="/signup" className="text-pink-500 ml-1">
                                             Create an account
                                         </Link>
                                     </span>

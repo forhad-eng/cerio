@@ -145,7 +145,7 @@ const SignUp = () => {
                                 <label className="inline-flex items-center cursor-pointer">
                                     <span className="ml-2 text-sm font-semibold text-blueGray-600">
                                         Already have an account?
-                                        <Link href="/user" className="text-pink-500 ml-1">
+                                        <Link to="/login" className="text-pink-500 ml-1">
                                             Login
                                         </Link>
                                     </span>
