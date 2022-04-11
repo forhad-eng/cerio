@@ -2,6 +2,7 @@ import { createContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import BestSellers from './components/BestSellers/BestSellers'
+import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import Latest from './components/Latest/Latest'
@@ -51,6 +52,7 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/user" element={<UserProfile />} />
                 </Routes>
+                <Footer />
             </div>
         </CartContext.Provider>
     )
