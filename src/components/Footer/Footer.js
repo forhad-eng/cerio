@@ -9,7 +9,7 @@ const Footer = () => {
     const thisYear = today.getFullYear()
 
     return (
-        <footer className="my-5">
+        <footer className="mt-12">
             <section className="grid md:grid-cols-3 gap-5 md:gap-0 items-center px-4 py-8 border-gray-300 border-y-2">
                 <div className="flex items-center justify-center md:justify-start border-gray-300 border-r-[1px] md:mr-28 text-gray-900">
                     <FontAwesomeIcon icon={faPaperPlane} className="w-8 h-8" />

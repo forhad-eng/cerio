@@ -1,6 +1,7 @@
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useState } from 'react'
+import ReactTooltip from 'react-tooltip'
 import { CartContext } from '../../App'
 import { addToDb, addToWish } from '../../utilities/fakedb'
 
@@ -41,14 +42,23 @@ const Product = ({ product }) => {
             <p className="font-semibold">{name}</p>
             <p className="text-red-600 font-bold">${price}</p>
             {open ? (
-                <div className="absolute bottom-24 left-1/2 transition-all">
-                    <button onClick={() => addToCartHandler(product)} className="outline-none hover:text-red-600">
+                <div className="flex gap-2 absolute bottom-24 left-[40%] md:left-[35%] transition-all">
+                    <button
+                        data-tip="Add To Cart"
+                        onClick={() => addToCartHandler(product)}
+                        className="flex justify-center items-center h-12 w-12 bg-white rounded-full p-3 outline-none hover:text-red-600"
+                    >
                         <FontAwesomeIcon icon={faShoppingCart} className="h-7 w-7" />
                     </button>
 
-                    <button onClick={() => addToWishHandler(product)} className="outline-none hover:text-red-600">
-                        <FontAwesomeIcon icon={faHeart} className="h-7 w-7 ml-2" />
+                    <button
+                        data-tip="Add To Wishlist"
+                        onClick={() => addToWishHandler(product)}
+                        className="flex justify-center items-center h-12 w-12 bg-white rounded-full p-3 outline-none hover:text-red-600"
+                    >
+                        <FontAwesomeIcon icon={faHeart} className="h-7 w-7" />
                     </button>
+                    <ReactTooltip effect="solid" />
                 </div>
             ) : (
                 ''
