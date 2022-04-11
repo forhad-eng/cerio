@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BarLoader } from 'react-spinners'
 import { CartContext } from '../../App'
 import useProducts from '../../hooks/useProducts'
@@ -14,6 +14,7 @@ const override = css`
 
 const WishList = () => {
     let [loading] = useState(true)
+    const [fetching, setFetching] = useState(true)
     const [products] = useProducts()
     const [, , wish] = useContext(CartContext)
 
@@ -25,12 +26,18 @@ const WishList = () => {
         }
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            setFetching(false)
+        }, 300)
+    }, [])
+
     return (
         <div className="grid md:grid-cols-4 gap-8 mt-28 md:mt-10">
-            {wishList.length === 0 ? (
+            {fetching ? (
                 <BarLoader loading={loading} css={override} />
             ) : (
-                wishList.map(product => <Product key={product.id} product={product} />)
+                wishList.map(product => <Product key={product.id} product={product} wishlist={true} />)
             )}
         </div>
     )

@@ -61,4 +61,13 @@ const getWish = () => {
     return storedCart
 }
 
-export { addToDb, getCart, removeItem, clearCart, addToWish, getWish }
+const removeWishItem = productID => {
+    const cart = localStorage.getItem('cerio-wishlist')
+    if (cart) {
+        const storedWish = [...JSON.parse(cart)]
+        const newWishList = storedWish.filter(id => id !== productID)
+        localStorage.setItem('cerio-wishlist', JSON.stringify(newWishList))
+    }
+}
+
+export { addToDb, getCart, removeItem, clearCart, addToWish, getWish, removeWishItem }

@@ -1,12 +1,12 @@
-import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faShoppingCart, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import ReactTooltip from 'react-tooltip'
 import { CartContext } from '../../App'
-import { addToDb, addToWish } from '../../utilities/fakedb'
+import { addToDb, addToWish, removeWishItem } from '../../utilities/fakedb'
 
-const Product = ({ product }) => {
+const Product = ({ product, wishlist }) => {
     const { name, price, picture } = product
     const [open, setOpen] = useState(false)
     const [cart, setCart, wish, setWish] = useContext(CartContext)
@@ -23,7 +23,7 @@ const Product = ({ product }) => {
             const rest = cart.filter(item => item.id !== product.id)
             newCart = [...rest, product]
         }
-        toast.success('Added in your cart', {
+        toast.success('Added to Cart', {
             duration: 1500,
             position: 'top-right'
         })
@@ -34,16 +34,26 @@ const Product = ({ product }) => {
     const addToWishHandler = product => {
         let newWish = []
         if (!wish.includes(product.id)) {
-            const rest = wish.filter(item => item !== product.id)
+            const rest = wish.filter(id => id !== product.id)
             newWish = [...rest, product.id]
             setWish(newWish)
+            toast.success('Added to Wishlist', {
+                duration: 1500,
+                position: 'top-right'
+            })
         } else {
-            toast.error('Already in your wishlist', {
+            toast.error('Already in Wishlist', {
                 duration: 1500,
                 position: 'top-right'
             })
         }
         addToWish(product.id)
+    }
+
+    const removeFromWishHandler = product => {
+        const newWish = wish.filter(id => id !== product.id)
+        setWish(newWish)
+        removeWishItem(product.id)
     }
 
     return (
@@ -61,13 +71,23 @@ const Product = ({ product }) => {
                         <FontAwesomeIcon icon={faShoppingCart} className="h-7 w-7" />
                     </button>
 
-                    <button
-                        data-tip="Add To Wishlist"
-                        onClick={() => addToWishHandler(product)}
-                        className="flex justify-center items-center h-12 w-12 bg-white rounded-full p-3 outline-none hover:text-red-600"
-                    >
-                        <FontAwesomeIcon icon={faHeart} className="h-7 w-7" />
-                    </button>
+                    {wishlist ? (
+                        <button
+                            data-tip="Remove From Wishlist"
+                            onClick={() => removeFromWishHandler(product)}
+                            className="flex justify-center items-center h-12 w-12 bg-white rounded-full p-3 outline-none hover:text-red-600"
+                        >
+                            <FontAwesomeIcon icon={faTrashCan} className="h-7 w-7" />
+                        </button>
+                    ) : (
+                        <button
+                            data-tip="Add To Wishlist"
+                            onClick={() => addToWishHandler(product)}
+                            className="flex justify-center items-center h-12 w-12 bg-white rounded-full p-3 outline-none hover:text-red-600"
+                        >
+                            <FontAwesomeIcon icon={faHeart} className="h-7 w-7" />
+                        </button>
+                    )}
                     <ReactTooltip effect="solid" />
                 </div>
             ) : (
