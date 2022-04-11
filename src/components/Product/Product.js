@@ -1,6 +1,7 @@
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 import ReactTooltip from 'react-tooltip'
 import { CartContext } from '../../App'
 import { addToDb, addToWish } from '../../utilities/fakedb'
@@ -22,6 +23,10 @@ const Product = ({ product }) => {
             const rest = cart.filter(item => item.id !== product.id)
             newCart = [...rest, product]
         }
+        toast.success('Added in your cart', {
+            duration: 1500,
+            position: 'top-right'
+        })
         setCart(newCart)
         addToDb(product.id)
     }
@@ -32,6 +37,11 @@ const Product = ({ product }) => {
             const rest = wish.filter(item => item !== product.id)
             newWish = [...rest, product.id]
             setWish(newWish)
+        } else {
+            toast.error('Already in your wishlist', {
+                duration: 1500,
+                position: 'top-right'
+            })
         }
         addToWish(product.id)
     }
@@ -63,6 +73,7 @@ const Product = ({ product }) => {
             ) : (
                 ''
             )}
+            <Toaster />
         </div>
     )
 }
