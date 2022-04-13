@@ -1,7 +1,7 @@
 import { faHeart, faShoppingCart, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useState } from 'react'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import ReactTooltip from 'react-tooltip'
 import { CartContext } from '../../App'
 import { addToDb, addToWish, removeWishItem } from '../../utilities/fakedb'
@@ -24,8 +24,7 @@ const Product = ({ product, wishlist }) => {
             newCart = [...rest, product]
         }
         toast.success('Added to Cart', {
-            duration: 1500,
-            position: 'top-right'
+            id: 'AddToCartSuccess'
         })
         setCart(newCart)
         addToDb(product.id)
@@ -37,15 +36,9 @@ const Product = ({ product, wishlist }) => {
             const rest = wish.filter(id => id !== product.id)
             newWish = [...rest, product.id]
             setWish(newWish)
-            toast.success('Added to Wishlist', {
-                duration: 1500,
-                position: 'top-right'
-            })
+            toast.success('Added to Wishlist', { id: 'AddToWishSuccess' })
         } else {
-            toast.error('Already in Wishlist', {
-                duration: 1500,
-                position: 'top-right'
-            })
+            toast.error('Already in Wishlist', { id: 'AddToWishFailed' })
         }
         addToWish(product.id)
     }
@@ -54,6 +47,7 @@ const Product = ({ product, wishlist }) => {
         const newWish = wish.filter(id => id !== product.id)
         setWish(newWish)
         removeWishItem(product.id)
+        toast.success('Item removed from wishlist')
     }
 
     return (
@@ -93,7 +87,6 @@ const Product = ({ product, wishlist }) => {
             ) : (
                 ''
             )}
-            <Toaster />
         </div>
     )
 }

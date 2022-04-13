@@ -1,4 +1,5 @@
 import { createContext } from 'react'
+import { Toaster } from 'react-hot-toast'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import BestSellers from './components/BestSellers/BestSellers'
@@ -53,6 +54,7 @@ function App() {
                     <Route path="/user" element={<UserProfile />} />
                 </Routes>
                 <Footer />
+                <Toaster />
             </div>
         </CartContext.Provider>
     )
