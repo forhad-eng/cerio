@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_apiKey,
-    authDomain: process.env.REACT_APP_authDomain,
-    projectId: process.env.REACT_APP_projectId,
-    storageBucket: process.env.REACT_APP_storageBucket,
-    messagingSenderId: process.env.REACT_APP_messagingSenderId,
-    appId: process.env.REACT_APP_appId
+    apiKey: 'AIzaSyC04XhawLHMEIEMrRcHuIQTtiZCHjeio84',
+    authDomain: 'cerio-shop.firebaseapp.com',
+    projectId: 'cerio-shop',
+    storageBucket: 'cerio-shop.appspot.com',
+    messagingSenderId: '1006264188516',
+    appId: '1:1006264188516:web:28941b751464164b0d6971'
 }
 
 const app = initializeApp(firebaseConfig)
